@@ -10,19 +10,31 @@ public class Main {
     }
 
     public static void checkifNumber() {
-        System.out.print("Enter a number: ");
-        String input = stdin.nextLine();
-        for (int i = 0; i < input.length(); i++) {
-            char currentChar = input.charAt(i);
-            if (currentChar == 'A') {
-                System.out.print("This number has a letter");
+        while (true) {
+
+            boolean containsLetter = false;
+
+            System.out.print("Enter a number: ");
+            String input = stdin.nextLine();
+
+            for (int i = 0; i < input.length(); i++) {
+
+                char currentChar = input.charAt(i);
+                if ((currentChar >= 'A' && currentChar <= 'Z') || (currentChar >= 'a' && currentChar <= 'z')) {
+                    containsLetter = true;
+                }
+            }
+
+            if (containsLetter) {
+                System.out.println("This input contains a letter, please try again.");
+                System.out.print("Enter a number: ");
+                input = stdin.nextLine();
+            } else {
+                System.out.println("This input is valid");
+                break;
             }
 
         }
-        //System.out.println(charArray);
-        //System.out.println(input);
-
-
     }
 
 
